@@ -22,8 +22,8 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			$messages = [
-				'สวัสดี' => 'text',
-				'text' => $text
+				'type' => 'text',
+				'text' => 'สวัสดี, user'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
