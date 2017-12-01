@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'สวัสดี คุณคือ '.$events['events'][0]['source']['userId']
+				'text' => 'สวัสดีครับ คุณคือ '.$events['events'][0]['source']['userId']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
