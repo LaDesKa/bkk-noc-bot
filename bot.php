@@ -13,7 +13,7 @@ $arrayHeader = array(); // new code
 $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
-$welcome = 'Hi';
+$welcome = ['Hi','Hello','สวัสดี','ดีจ้า','hi','hello'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
