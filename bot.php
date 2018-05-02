@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['type'] == 'sticker') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message'] == 'Hi') {
 			// Get text sent
 			$text == 'Hi' ;
 			// Get replyToken
@@ -40,13 +40,14 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_PROXY, $proxy);
-curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
-$result = curl_exec($ch);
+                        curl_setopt($ch, CURLOPT_PROXY, $proxy);
+                        curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+                        $result = curl_exec($ch);
 			curl_close($ch);
 
 			echo $result . "\r\n";
 		}
+		else if 
 	}
 }
 echo "OK";
