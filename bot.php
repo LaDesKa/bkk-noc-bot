@@ -13,6 +13,7 @@ $arrayHeader = array(); // new code
 $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
+$welcome = 'Hi';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -20,7 +21,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == $welcome) {
 			// Get text sent
-			$welcome == 'Hi' ;
+			//$welcome == 'Hi' ;
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
