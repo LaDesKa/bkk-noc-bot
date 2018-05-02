@@ -17,9 +17,9 @@ $welcome = ['Hi','Hello','สวัสดี','ดีจ้า','hi','hello'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
-	foreach ($events['events'] as $event && $welcome as $welcomes) {
+	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == $welcomes.) {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == $welcome) {
 			// Get text sent
 			//$welcome == 'Hi' ;
 			// Get replyToken
