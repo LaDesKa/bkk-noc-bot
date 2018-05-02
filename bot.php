@@ -8,12 +8,17 @@ $access_token = 'rZC7OxAaKHIz4OS/72ty7JwBYqMJBprC+MsdWsVrG5ePZX2/dhiusE2hYb1vu0B
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$arrayJson = json_decode($content, true); // new code
+$arrayHeader = array(); // new code
+$arrayHeader[] = "Content-Type: application/json"; // new code
+$arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
+$message = $arrayJson['events'][0]['message']['text']; // new code
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message1 == 'Hi') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == "Hi") {
 			// Get text sent
 			$text == 'Hi' ;
 			// Get replyToken
