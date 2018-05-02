@@ -18,16 +18,16 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == "Hi") {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == $welcome) {
 			// Get text sent
-			$text == 'Hi' ;
+			$welcome == 'Hi' ;
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'Hello!! you are '.$events['events'][0]['source']['userId']
+				'text' => 'Hello!! I am Aerothai NOC-BOT'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
