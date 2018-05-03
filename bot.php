@@ -13,7 +13,7 @@ $arrayHeader = array(); // new code
 $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
-$welcome = ['Hi','RGS','สวัสดี','ดีจ้า','hi','hello'];
+$welcome = ['Hi','RGS','RGS_Country','ดีจ้า','hi','hello'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -90,7 +90,54 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-    
+    else if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $message == $welcome[2]) {
+			// Get text sent
+			//$welcome == 'Hi' ;
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => 'Australia : 28 stations
+					   Brunei : 1 station
+					   Cambodia : 2 stations
+					   India : 7 stations
+					   Indonesia : 12 stations
+					   Malaysia : 18 stations
+					   Mongolia : 4 stations
+					   Myanmar : 3 stations
+					   New Zealand : 6 stations
+					   Philippines : 7 stations
+					   Singapore : 5 stations
+					   South Korea : 18 stations
+					   Taiwan : 5 stations
+					   Thailand : 20 stations
+					   Vietnam : 7 stations'
+			];
+
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                        curl_setopt($ch, CURLOPT_PROXY, $proxy);
+                        curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+                        $result = curl_exec($ch);
+			curl_close($ch);
+
+			echo $result . "\r\n";
+		}
 	}
 }
 echo "OK";
