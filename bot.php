@@ -13,7 +13,7 @@ $arrayHeader = array(); // new code
 $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
-$welcome = ['Hi','Hello','สวัสดี','ดีจ้า','hi','hello'];
+$welcome = ['Hi','RGS_NUM','สวัสดี','ดีจ้า','hi','hello'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -53,7 +53,12 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-
+	else if($message == $welcome[1]){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "Total RGS is 143";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
 	}
 }
 echo "OK";
