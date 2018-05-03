@@ -142,7 +142,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$welcome == 'Hi' ;
 			// Get replyToken
-			$report = "http://10.1.10.212/PageChild/Analysis_Report_Page/Analysis_Report.aspx";
+			$report = "http://10.1.10.212/PageChild/Analysis_Report_Page/Performance_Station.aspx";
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
