@@ -13,7 +13,7 @@ $arrayHeader = array(); // new code
 $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
-$welcome = ['ป้อง','RGS','RGS_Country','ดีจ้า','hi','hello'];
+$welcome = ['Hi','RGS','RGS_Country','ดีจ้า','hi','hello'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'กระหรี่'
+				'text' => 'Hello!! I am Aerothai NOC-BOT'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
