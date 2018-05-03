@@ -62,7 +62,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'Total RGS is 143 station \r\n ACARS: 143 stations \r\n VDL: 32 stations \r\n Autotune: 32 stations '
+				'text' => 'Total RGS is 143 station'\r\n 'ACARS: 143 stations' \r\n 'VDL: 32 stations' \r\n 'Autotune: 32 stations'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
