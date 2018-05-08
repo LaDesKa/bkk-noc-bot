@@ -14,6 +14,7 @@ $arrayHeader[] = "Content-Type: application/json"; // new code
 $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
 $welcome = ['Hi','RGS','RGS_Country','Report','hi','hello'];
+$response = $bot => getProfile($userId);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -23,13 +24,14 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$welcome == 'Hi' ;
 			// Get replyToken
+			$userData = $response -> getJSONDecodedBody();
 			$textss = $event['source']['userId']['displayName'];
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $textss
+				'text' => $UserData['displayName']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
