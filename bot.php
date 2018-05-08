@@ -25,13 +25,13 @@ if (!is_null($events['events'])) {
 			//$welcome == 'Hi' ;
 			// Get replyToken
 			$username = $event['source']['userId'];
-			$userData = $username => getJSONDecodedBody();
+			$userData = $username->getJSONDecodedBody();
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $userData
+				'text' => .$userData['displayName']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
