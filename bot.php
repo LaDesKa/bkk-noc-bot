@@ -23,12 +23,13 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$welcome == 'Hi' ;
 			// Get replyToken
+			$textss = $event['source']['userId'];
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'Hello!! I am Aerothai NOC-BOT'.$userId['displayName']
+				'text' => 'Hello!! I am Aerothai NOC-BOT'.$textss['displayName']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
