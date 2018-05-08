@@ -22,6 +22,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
 $welcome = ['Hi','RGS','RGS_Country','Report','hi','hello'];
 $userID = $events['events'][0]['source']['userId'];
+$responses = getProfile($userID);
 $userData = json_decode($userID);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -39,7 +40,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $userData
+				'text' => $responses
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
