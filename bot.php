@@ -42,8 +42,8 @@ $channelSecret = '9b9c85d174878dd562bbf3972c961c18';
 //$httpClient =  \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 //$bot =  \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]); 
 
-//$httpClient = new CurlHTTPClient($access_token);
-//$bot = new LINEBot($httpClient, array('channelSecret' => $channelSecret));
+$httpClient = new CurlHTTPClient($access_token);
+$bot = new LINEBot($httpClient, array('channelSecret' => $channelSecret));
 
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -73,7 +73,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $responses
+				'text' => $userID
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
