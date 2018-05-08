@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$welcome == 'Hi' ;
 			// Get replyToken
-			$textss = $event['source']['userId'];
+			$textss = $event['source']['userId']['displayName'];
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
