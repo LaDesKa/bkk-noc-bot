@@ -22,7 +22,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}"; // new code
 $message = $arrayJson['events'][0]['message']['text']; // new code
 $welcome = ['Hi','RGS','RGS_Country','Report','hi','hello'];
 $userID = $events['events'][0]['source']['userId'];
-$responses = getProfile($userID);
+$responses = get_Profile($userID);
 $userData = json_decode($userID);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
