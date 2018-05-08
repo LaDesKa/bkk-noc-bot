@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $userData
+				'text' => $userID
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
