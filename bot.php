@@ -14,7 +14,7 @@ $channelSecret = '9b9c85d174878dd562bbf3972c961c18';
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 //$response = $bot->pushMessage('U1cefecdcaa49cdb7c36785307c86e68f', $textMessageBuilder);
 
-$bot = new ..\LINE\LINEBot(new CurlHTTPClient($access_token), [
+$bot = new \LINE\LINEBot(new CurlHTTPClient($access_token), [
     'channelSecret' => $channelSecret
 ]);
 
