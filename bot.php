@@ -18,13 +18,7 @@ $bot = new \LINE\LINEBot(new CurlHTTPClient($access_token), [
     'channelSecret' => $channelSecret
 ]);
 
-$res = $bot->getProfile($userID);
-if ($res->isSucceeded()) {
-    $profile = $res->getJSONDecodedBody();
-    $displayName = $profile['displayName'];
-    $statusMessage = $profile['statusMessage'];
-    $pictureUrl = $profile['pictureUrl'];
-}
+
 
 //$httpClient = new CurlHTTPClient($access_token);
 //$bot = new LINEBot($httpClient, array('channelSecret' => $channelSecret));
@@ -42,6 +36,15 @@ $userID = $events['events'][0]['source']['userId'];
 //$responses = $bot -> getProfile($userID);
 //$userData = $userID->getJSONDecodedBody();
 // Validate parsed JSON data
+
+$res = $bot->getProfile($userID);
+if ($res->isSucceeded()) {
+    $profile = $res->getJSONDecodedBody();
+    $displayName = $profile['displayName'];
+    $statusMessage = $profile['statusMessage'];
+    $pictureUrl = $profile['pictureUrl'];
+}
+
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
