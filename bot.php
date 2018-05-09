@@ -10,6 +10,9 @@ $access_token = 'rZC7OxAaKHIz4OS/72ty7JwBYqMJBprC+MsdWsVrG5ePZX2/dhiusE2hYb1vu0B
 $channelSecret = '9b9c85d174878dd562bbf3972c961c18';
 $httpClient = new LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]); 
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+$response = $bot->pushMessage('U1cefecdcaa49cdb7c36785307c86e68f', $textMessageBuilder);
+
 
 //$httpClient = new CurlHTTPClient($access_token);
 //$bot = new LINEBot($httpClient, array('channelSecret' => $channelSecret));
@@ -189,4 +192,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 echo "OK";
