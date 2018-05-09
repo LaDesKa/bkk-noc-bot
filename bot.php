@@ -13,13 +13,6 @@ $channelSecret = '9b9c85d174878dd562bbf3972c961c18';
 //$bot = new LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]); 
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 //$response = $bot->pushMessage('U1cefecdcaa49cdb7c36785307c86e68f', $textMessageBuilder);
-
-//$bot = new \LINE\LINEBot(new CurlHTTPClient($access_token), [
-//    'channelSecret' => $channelSecret
-//]);
-
-
-
 //$httpClient = new CurlHTTPClient($access_token);
 //$bot = new LINEBot($httpClient, array('channelSecret' => $channelSecret));
 
@@ -36,14 +29,6 @@ $userID = $events['events'][0]['source']['userId'];
 //$responses = $bot -> getProfile($userID);
 //$userData = $userID->getJSONDecodedBody();
 // Validate parsed JSON data
-
-$res = $bot->getProfile($userID);
-if ($res->isSucceeded()) {
-    $profile = $res->getJSONDecodedBody();
-    $displayName = $profile['displayName'];
-    $statusMessage = $profile['statusMessage'];
-    $pictureUrl = $profile['pictureUrl'];
-}
 
 if (!is_null($events['events'])) {
 	// Loop through each event
