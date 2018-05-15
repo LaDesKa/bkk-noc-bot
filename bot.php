@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'Hi!! I am Aerothai Noc Bot'
+				'text' => 'Hello!! I am Aerothai Noc Bot'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
